@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="viewModel" type="com.example.evoarchexample.viewmodel.MainViewModel"/>
+        <variable name="viewModel" type="com.example.evoarchexample.auth.viewmodel.MainViewModel"/>
         <variable name="userEmail" type="String"/>
         <variable name="userPassword" type="String"/>
     </data>
@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_height="match_parent"
-            tools:context=".view.MainActivity">
+            tools:context=".auth.view.MainActivity">
 
         <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/emailTextInputLayout"
@@ -21,7 +21,7 @@
                 android:layout_margin="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content"
-                app:errorEnabled="@{!viewModel.isEmailValid}">
+                app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
@@ -40,7 +40,7 @@
                 android:layout_marginBottom="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content"
-                app:errorEnabled="@{!viewModel.isPasswordValid}">
+                app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"

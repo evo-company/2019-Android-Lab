@@ -1,4 +1,4 @@
-package com.example.evoarchexample.view
+package com.example.evoarchexample.auth.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -9,9 +9,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.evoarchexample.R
 import com.example.evoarchexample.data.MockAuthDataRepository
 import com.example.evoarchexample.databinding.ActivityMainBinding
-import com.example.evoarchexample.databinding.ActivityMainBindingImpl
-import com.example.evoarchexample.viewmodel.MainViewModel
-import com.example.evoarchexample.viewmodel.MainViewModelFactory
+import com.example.evoarchexample.auth.viewmodel.MainViewModel
+import com.example.evoarchexample.auth.viewmodel.MainViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,18 +21,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this, MainViewModelFactory(MockAuthDataRepository())).get(MainViewModel::class.java)
-
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.viewModel = viewModel
-        configureView()
 
-        viewModel.showMessage.observe(this, Observer {
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        })
-    }
+        viewModel.apply {
+            val activity = this@MainActivity
 
-    private fun configureView() {
-        emailTextInputLayout.error = "Wrong email format"
-        passwordTextInputLayout.error = "Must have at least ${MainViewModel.MIN_PASSWORD_LENGTH} symbols"
+            showMessage.observe(activity, Observer {
+                Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
+            })
+
+            isEmailValid.observe(activity, Observer { valid ->
+                emailTextInputLayout.error = if (!valid) getString(R.string.error_wrong_email) else null
+            })
+
+            isPasswordValid.observe(activity, Observer {valid ->
+                passwordTextInputLayout.error = if (!valid) {
+                    String.format(getString(R.string.format_error_short_password), MainViewModel.MIN_PASSWORD_LENGTH)
+                } else {
+                    null
+                }
+            })
+        }
     }
 }

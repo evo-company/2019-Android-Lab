@@ -1,4 +1,4 @@
-package com.example.evoarchexample.viewmodel
+package com.example.evoarchexample.auth.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
