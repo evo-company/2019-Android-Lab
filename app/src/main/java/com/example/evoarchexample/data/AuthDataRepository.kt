@@ -1,7 +1,8 @@
 package com.example.evoarchexample.data
 
-import androidx.lifecycle.LiveData
+import com.example.evoarchexample.errors.WrongPasswordException
 
 interface AuthDataRepository {
-    fun logIn(email: String, password: String): LiveData<String>
+    @Throws(WrongPasswordException::class)
+    fun logIn(email: String, password: String): String
 }

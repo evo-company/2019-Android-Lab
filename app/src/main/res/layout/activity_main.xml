@@ -1,49 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <data>
+        <variable name="viewModel" type="com.example.evoarchexample.viewmodel.MainViewModel"/>
+        <variable name="userEmail" type="String"/>
+        <variable name="userPassword" type="String"/>
+    </data>
+
+    <LinearLayout
             android:layout_width="match_parent"
-            android:layout_margin="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            tools:context=".view.MainActivity">
 
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/email"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTextInputLayout"
                 android:layout_width="match_parent"
+                android:layout_margin="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email"/>
-    </com.google.android.material.textfield.TextInputLayout>
+                app:errorEnabled="@{!viewModel.isEmailValid}">
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:text='@={userEmail, default="email@example.com"}'
+                    android:hint="@string/email"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTextInputLayout"
                 android:layout_width="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="@string/password"/>
-    </com.google.android.material.textfield.TextInputLayout>
+                app:errorEnabled="@{!viewModel.isPasswordValid}">
 
-    <Button android:layout_width="wrap_content"
-            android:text="@string/login"
-            android:id="@+id/login"
-            android:textColor="@android:color/white"
-            android:backgroundTint="@color/colorPrimary"
-            android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_height="wrap_content"/>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={userPassword}"
+                    android:hint="@string/password"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</LinearLayout>
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:id="@+id/login"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{(view) -> viewModel.logIn(userEmail, userPassword)}"/>
+
+    </LinearLayout>
+</layout>
