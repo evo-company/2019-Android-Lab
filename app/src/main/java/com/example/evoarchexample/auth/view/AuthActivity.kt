@@ -22,11 +22,11 @@ class AuthActivity : AppCompatActivity(), AuthView {
         }
     }
 
-    override fun showSuccess() {
-        Toast.makeText(this, getString(R.string.success), Toast.LENGTH_SHORT).show()
-    }
+    override fun showSuccess() = showMessage(getString(R.string.success))
 
-    override fun showAuthError() = showError(getString(R.string.error))
+    override fun showAuthError() = showMessage(getString(R.string.error))
+
+    override fun showError(errorMessage: String) = showMessage(getString(R.string.error))
 
     override fun showEmailValidationError() {
         email.error = getString(R.string.error)
@@ -36,7 +36,7 @@ class AuthActivity : AppCompatActivity(), AuthView {
         password.error = getString(R.string.error)
     }
 
-    override fun showError(errorMessage: String) {
-        Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
+    private fun showMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
