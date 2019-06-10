@@ -16,9 +16,6 @@ class MainViewModel(private val repository: AuthDataRepository) : ViewModel() {
     val isPasswordValid = MutableLiveData<Boolean>()
     val showMessage = MutableLiveData<String>()
 
-    /**
-     * Returns authorization token if login was successful
-     */
     fun logIn(email: String?, password: String?) {
         isEmailValid.value = checkEmailFormat(email)
         isPasswordValid.value = checkPasswordFormat(password)
