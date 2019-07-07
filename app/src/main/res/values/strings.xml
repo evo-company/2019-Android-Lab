@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppComponents</string>
+    <string name="feed">Feed</string>
+    <string name="developers">Developers</string>
+    <string name="repos_count">%d repos</string>
+    <string name="gists_count">%d gists</string>
+    <string name="followers_count">%d followers</string>
+    <string name="followings_count">%d followings</string>
+</resources>
