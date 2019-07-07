@@ -47,13 +47,8 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:${rootProject.androidX}"
     implementation "androidx.collection:collection-ktx:${rootProject.androidX}"
 
-    implementation "android.arch.navigation:navigation-fragment:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-ui:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-common-ktx:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-runtime-ktx:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-fragment-ktx:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-ui-ktx:${rootProject.navigation}"
-    implementation "android.arch.navigation:navigation-testing-ktx:1.0.0-alpha01"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
     // android architecture component
     implementation "androidx.lifecycle:lifecycle-runtime:${rootProject.lifecycle}"

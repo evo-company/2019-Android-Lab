@@ -12,6 +12,14 @@
         <action
             android:id="@+id/action_developersFragment2_to_devDetailFragment"
             app:destination="@id/devDetailFragment"/>
+        <deepLink
+            android:id="@+id/developersAppLink"
+            android:autoVerify="true"
+            app:uri="appComponents://developers"/>
+        <deepLink
+            android:id="@+id/developersDeepLink"
+            android:autoVerify="true"
+            app:uri="www.github.com/developers"/>
     </fragment>
     <fragment
         android:id="@+id/devDetailFragment"
@@ -20,5 +28,13 @@
         <argument
             android:name="devLogin"
             app:argType="string"/>
+        <deepLink
+            android:id="@+id/developerAppLink"
+            android:autoVerify="true"
+            app:uri="appComponents://developer/{devLogin}"/>
+        <deepLink
+            android:id="@+id/developerDeepLink"
+            android:autoVerify="true"
+            app:uri="www.github.com/developer/{devLogin}"/>
     </fragment>
 </navigation>

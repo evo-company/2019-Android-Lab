@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import evo.company.appcomponents.R
 import kotlinx.android.synthetic.main.fragment_developer_detail.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DevDetailFragment : Fragment() {
