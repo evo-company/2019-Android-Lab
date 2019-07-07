@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/developers"
+    app:startDestination="@id/developersFragment">
+
+    <fragment
+        android:id="@+id/developersFragment"
+        android:name="evo.company.appcomponents.ui.devs.DevelopersFragment"
+        android:label="DevelopersFragment">
+        <action
+            android:id="@+id/action_developersFragment2_to_devDetailFragment"
+            app:destination="@id/devDetailFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/devDetailFragment"
+        android:name="evo.company.appcomponents.ui.devDetail.DevDetailFragment"
+        android:label="DevDetailFragment">
+        <argument
+            android:name="devLogin"
+            app:argType="string"/>
+    </fragment>
+</navigation>
