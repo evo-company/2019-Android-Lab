@@ -3,6 +3,8 @@ package evo.company.appcomponents.ui.devs
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import evo.company.appcomponents.R
@@ -33,6 +35,10 @@ class DevsAdapter(
                     .load(dev.avatarUrl)
                     .into(icon)
                 name.text = dev.login
+                setOnClickListener {
+                    val action = DevelopersFragmentDirections.actionDevelopersFragment2ToDevDetailFragment(dev.login)
+                    Navigation.findNavController(itemView).navigate(action)
+                }
             }
         }
     }

@@ -17,6 +17,11 @@ class DevDetailFragment : Fragment() {
 
     private val devDetailViewModel: DeveloperDetailViewModel by viewModel()
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        devDetailViewModel.init(DevDetailFragmentArgs.fromBundle(arguments!!).devLogin)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_developer_detail, container, false)
     }

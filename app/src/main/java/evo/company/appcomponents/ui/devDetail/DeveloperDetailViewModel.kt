@@ -13,13 +13,12 @@ class DeveloperDetailViewModel constructor(
 ) : ViewModel() {
 
     private val developerResult = MutableLiveData<Developer>()
-
     val developer: LiveData<Developer> = developerResult
 
-    init {
+    fun init(devLogin: String) {
         viewModelScope.launch {
             runCatching {
-                developerDetailRepository.getDeveloper("PythonBian")
+                developerDetailRepository.getDeveloper(devLogin)
             }.onSuccess { developer ->
                 developerResult.value = developer
             }
