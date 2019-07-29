@@ -1,6 +1,7 @@
 package evo.company.firebaselecture.data
 
 import com.google.firebase.firestore.FirebaseFirestore
+import com.kiwimob.firestore.coroutines.await
 import evo.company.firebaselecture.model.Notification
 
 class FirebaseManager(
@@ -29,5 +30,9 @@ class FirebaseManager(
                 batch.set(collection.document(docId), it.apply { it.id = docId })
             }
         }
+    }
+
+    suspend fun getAllNotifications(): List<Notification> {
+        return firestore.collection(NOTIFICATIONS).await(Notification::class.java)
     }
 }

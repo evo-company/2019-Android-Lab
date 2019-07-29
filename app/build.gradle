@@ -41,5 +41,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:19.0.1'
     implementation 'com.github.brotoo25:firestore-coroutines:0.0.7'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2'
 }
 apply plugin: 'com.google.gms.google-services'
