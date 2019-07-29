@@ -21,5 +21,13 @@ class FirebaseManager(
         }
     }
 
-
+    fun fillInData() {
+        val collection = firestore.collection(NOTIFICATIONS)
+        firestore.runBatch { batch ->
+            getRandomNotificationsWithoutIds().forEach {
+                val docId = collection.document().id
+                batch.set(collection.document(docId), it.apply { it.id = docId })
+            }
+        }
+    }
 }
