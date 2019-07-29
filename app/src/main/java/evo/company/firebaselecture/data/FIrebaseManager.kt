@@ -1,6 +1,9 @@
 package evo.company.firebaselecture.data
 
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.QuerySnapshot
 import com.kiwimob.firestore.coroutines.await
 import evo.company.firebaselecture.model.Notification
 
@@ -34,5 +37,9 @@ class FirebaseManager(
 
     suspend fun getAllNotifications(): List<Notification> {
         return firestore.collection(NOTIFICATIONS).await(Notification::class.java)
+    }
+
+    fun getNotificationsQuery(): Query {
+        return firestore.collection(NOTIFICATIONS)
     }
 }
