@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "429408794562",
+    "firebase_url": "https://fir-lecture-7e3ed.firebaseio.com",
+    "project_id": "fir-lecture-7e3ed",
+    "storage_bucket": "fir-lecture-7e3ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429408794562:android:3db7a4fe8aaa6c06",
+        "android_client_info": {
+          "package_name": "evo.company.firebaselecture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429408794562-1auj7vot11455t4psq8p7tdfldg842u3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "evo.company.firebaselecture",
+            "certificate_hash": "2f2007f2268505e141b8220ffef7605738607608"
+          }
+        },
+        {
+          "client_id": "429408794562-c9kmbjkhk3go0n738uepk54prmf3bp0v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgrlsHmnz4Misiw4loZX2WSPtvcziAy9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429408794562-c9kmbjkhk3go0n738uepk54prmf3bp0v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
