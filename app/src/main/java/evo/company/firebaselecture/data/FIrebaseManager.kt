@@ -12,6 +12,7 @@ class FirebaseManager(
 ) {
     companion object {
         private const val NOTIFICATIONS = "NOTIFICATIONS"
+        private const val PUSH_TOKENS = "PUSH_TOKENS"
 
         private fun getRandomNotificationsWithoutIds(): List<Notification> {
             return mutableListOf<Notification>().apply {
@@ -41,5 +42,9 @@ class FirebaseManager(
 
     fun getNotificationsQuery(): Query {
         return firestore.collection(NOTIFICATIONS)
+    }
+
+    fun savePushToken(token: String) {
+        firestore.collection(PUSH_TOKENS).document().set(mapOf("token" to token))
     }
 }
